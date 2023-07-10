@@ -1,2 +1,2 @@
-export * from "./useRenderOnIntersection";
-export * from "./useIntersectionObserver";
+export * from './useRenderOnIntersection';
+export * from './useIntersectionObserver';

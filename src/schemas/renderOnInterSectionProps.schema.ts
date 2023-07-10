@@ -1,4 +1,4 @@
-import { IuseRenderOnIntersection } from "./useRenderOnIntersection.schema";
+import { IuseRenderOnIntersection } from './useRenderOnIntersection.schema';
 
 export interface IRenderOnIntersectionProps extends IuseRenderOnIntersection {
   /**

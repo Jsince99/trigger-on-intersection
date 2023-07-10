@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef } from 'react';
 
-import { useRenderOnIntersection } from "../hooks";
-import { IRenderOnIntersectionProps } from "../schemas";
+import { useRenderOnIntersection } from '../hooks';
+import { IRenderOnIntersectionProps } from '../schemas';
 
 /**
  *
@@ -13,12 +13,12 @@ export const RenderOnIntersection = ({
   defaultHeight = 100,
   defaultWidth = 100,
   threshold = 0,
-  rootMargin = "100px",
+  rootMargin = '100px',
   idlecallBackTimeout = 100,
   root = null,
-  parentElement: ParentElement = "div",
+  parentElement: ParentElement = 'div',
   parentClassName,
-  skeletonElement: SkeletonElement = "div",
+  skeletonElement: SkeletonElement = 'div',
   skeletonClassName,
   children,
 }: IRenderOnIntersectionProps) => {

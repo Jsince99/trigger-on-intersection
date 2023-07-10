@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-import { IuseRenderOnIntersection } from "../schemas";
-import { useIntersectionObserver } from "./useIntersectionObserver";
+import { IuseRenderOnIntersection } from '../schemas';
+import { useIntersectionObserver } from './useIntersectionObserver';
 
 /**
  *

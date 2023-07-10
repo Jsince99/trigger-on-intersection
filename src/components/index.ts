@@ -1,1 +1,1 @@
-export * from "./RenderOnIntersection";
+export * from './RenderOnIntersection';

@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
-import { IuseIntersectionObserver } from "../schemas";
+import { IuseIntersectionObserver } from '../schemas';
 
 /**
  *
@@ -14,7 +14,7 @@ export const useIntersectionObserver = ({
   rootMargin,
   threshold,
   idlecallBackTimeout,
-  onTrigger = (entries: IntersectionObserverEntry[]) => {},
+  onTrigger,
 }: IuseIntersectionObserver) => {
   const callBackRef = useRef<number>(-1);
 
@@ -30,16 +30,16 @@ export const useIntersectionObserver = ({
         //   if we have access to idlecallBack we use it to avoid running on main thread
         if (window.requestIdleCallback) {
           callBackRef.current = window.requestIdleCallback(
-            () => onTrigger(entries),
+            () => onTrigger && onTrigger(entries),
             {
               timeout: idlecallBackTimeout,
-            }
+            },
           );
         } else {
-          onTrigger(entries);
+          onTrigger && onTrigger(entries);
         }
       },
-      { root, rootMargin, threshold }
+      { root, rootMargin, threshold },
     );
 
     observer.observe(tempRef);
@@ -52,5 +52,5 @@ export const useIntersectionObserver = ({
       if (window.cancelIdleCallback)
         window.cancelIdleCallback(callBackRef.current);
     };
-  }, [idlecallBackTimeout, currentRef, root, rootMargin, threshold]);
+  }, [idlecallBackTimeout, currentRef, root, rootMargin, threshold, onTrigger]);
 };

@@ -1,7 +1,7 @@
-import { IuseIntersectionObserver } from "./useIntersectionObserver.schema";
+import { IuseIntersectionObserver } from './useIntersectionObserver.schema';
 
 export interface IuseRenderOnIntersection
-  extends Omit<IuseIntersectionObserver, "onTrigger"> {
+  extends Omit<IuseIntersectionObserver, 'onTrigger'> {
   /**
    * **alwaysShow** : always renders in dom when true. ( default false )
    */
