@@ -1,9 +1,13 @@
 {
   "name": "@sravanth-c2fo/trigger-on-intersection",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/sravanth-c2fo"
+    "registry": "https://npm.pkg.github.com/sravanth-c2fo",
+    "access": "public"
   },
-  "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/Sravanth-C2FO/trigger-on-intersection.git"
+  },
+  "version": "1.0.2",
   "description": "A library for hooks and components that leverage Intersection Observer to achieve wide variety of results such as virtual rendering, infinite scrolling etc.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
