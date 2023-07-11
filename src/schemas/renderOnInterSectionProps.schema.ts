@@ -1,6 +1,7 @@
 import { IuseRenderOnIntersection } from './useRenderOnIntersection.schema';
 
-export interface IRenderOnIntersectionProps extends IuseRenderOnIntersection {
+export interface IRenderOnIntersectionProps
+  extends Omit<IuseRenderOnIntersection, 'currentRef'> {
   /**
    * **parentElement** : it acts as wrapper around the component we want to render and\
    * use it's reference for checking visibilty.

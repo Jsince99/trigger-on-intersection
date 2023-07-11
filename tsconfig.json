@@ -18,7 +18,9 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "types": ["jest"]
   },
-  "include": ["src"]
+  "include": ["src", "src/setupTests.ts"],
+  "exclude": ["**/*.spec.ts", "**/*.spec.tsx"]
 }
