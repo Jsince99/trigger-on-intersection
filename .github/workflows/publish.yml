@@ -37,6 +37,9 @@ jobs:
       - name: Build package
         run: pnpm run build
 
+      - name: Configure npm authentication for NPM Package Registry
+        run: echo "//registry.npmjs.org/:_authToken=\${{ secrets.NPM_TOKEN }}" > .npmrc
+
       - name: Publish to npm registry
         run: pnpm publish --access public
 
