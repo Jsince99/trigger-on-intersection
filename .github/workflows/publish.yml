@@ -72,7 +72,7 @@ jobs:
         run: pnpm run build
 
       - name: Configure npm authentication for GitHub Package Registry
-        run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.GITHUB_TOKEN }}" > .npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.WRITE_TOKEN }}" > .npmrc
 
       - name: Publish to GitHub Package Registry
         run: pnpm publish --access public --registry=https://npm.pkg.github.com/
