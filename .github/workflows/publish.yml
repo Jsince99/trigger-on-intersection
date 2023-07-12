@@ -39,7 +39,7 @@ jobs:
         run: pnpm run build
 
       - name: Publish to npm registry
-        run: pnpm publish
+        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
