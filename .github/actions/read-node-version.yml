@@ -1,0 +1,18 @@
+name: Read PNPM & Node.js version
+runs:
+  using: 'composite'
+  steps:
+    - name: Read Node.js version from .nvmrc
+      run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
+    - name: Read PNPM version form .pnpmv
+      run: echo "PNPM_VERSION=$(cat .pnpmv)" >> $GITHUB_ENV
+name: Set up Node.js & pnpm
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{env.NODE_VERSION}}
+    - name: Setup pnpm
+      uses: actions/
