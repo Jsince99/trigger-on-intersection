@@ -15,19 +15,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Set up pnpm ${{env.PNPM_VERSION}}
-        uses: pnpm/action-setup@v2
-        with:
-          version: ${{env.PNPM_VERSION}}
-
       - name: Read Node.js version ${{env.NODE_VERSION}}
         uses: ./.github/actions/read-node-version.yml
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
