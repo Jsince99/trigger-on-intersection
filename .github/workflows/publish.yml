@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install
@@ -37,11 +38,10 @@ jobs:
       - name: Build package
         run: pnpm run build
 
-      - name: Configure npm authentication for NPM Package Registry
-        run: echo "//registry.npmjs.org/:_authToken=\${{ secrets.NPM_TOKEN }}" > .npmrc
-
       - name: Publish to npm registry
-        run: pnpm publish --access public
+        run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish_to_gpr:
     runs-on: ubuntu-latest
@@ -64,6 +64,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
+          registry-url: 'https://npm.pkg.github.com'
 
       - name: Install dependencies
         run: pnpm install
@@ -71,8 +72,7 @@ jobs:
       - name: Build package
         run: pnpm run build
 
-      - name: Configure npm authentication for GitHub Package Registry
-        run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.WRITE_TOKEN }}" > .npmrc
-
       - name: Publish to GitHub Package Registry
-        run: pnpm publish --access public --registry=https://npm.pkg.github.com/
+        run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.WRITE_TOKEN}}
