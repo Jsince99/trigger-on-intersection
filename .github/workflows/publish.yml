@@ -10,11 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Read .nvmrc
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+        id: nvm
+      - name: Use Node version ${{steps.nvm.outputs.NODE_VERSION}}
+        uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: ${{steps.nvm.outputs.NODE_VERSION}}
           registry-url: https://npm.pkg.github.com/
           scope: '@sravanth-c2fo'
+      - name: Read .pnpmv
+        run: echo ::set-output name=PNPM_VERSION::$(cat .pnpmv)
+        id: pnpm
+      - name: Use pnpm version ${{steps.pnpm.outputs.PNPM_VERSION}}
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{steps.pnpm.outputs.PNPM_VERSION}}
+
       - name: Install dependencies
         run: pnpm install
       - name: Build
