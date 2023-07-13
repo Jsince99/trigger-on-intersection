@@ -6,7 +6,7 @@
   "contributors": [
     "Sravanth Reddy Janga"
   ],
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "A library for hooks and components that leverage Intersection Observer to achieve wide variety of results such as virtual rendering, infinite scrolling etc.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -34,7 +34,7 @@
   "author": "Sravanth Reddy Janga",
   "license": "ISC",
   "peerDependencies": {
-    "react": ">=16.8.0 | >=17 | >=18"
+    "react": "^16.8.0 || ^17 || ^18"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
