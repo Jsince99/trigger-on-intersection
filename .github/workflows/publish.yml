@@ -73,6 +73,6 @@ jobs:
         run: pnpm run build
 
       - name: Publish to GitHub Package Registry
-        run: pnpm publish
+        run: pnpm publish --access public --tag ${{secrets.PACKAGE_TAG}}
         env:
           NODE_AUTH_TOKEN: ${{secrets.WRITE_TOKEN}}
