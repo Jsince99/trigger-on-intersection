@@ -1,4 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import packageJson from './package.json' assert { type: 'json' };
@@ -9,13 +10,15 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: packageJson.module,
-        format: 'cjs',
+        file: packageJson.main,
+        format: 'module',
         sourcemap: true,
+        strict: false,
       },
     ],
     plugins: [
       resolve(),
+      babel({ babelHelpers: 'bundled' }),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       eslint({
@@ -25,5 +28,6 @@ export default [
         exclude: ['node_modules/**', 'dist/**'],
       }),
     ],
+    external: ['react'],
   },
 ];

@@ -13,6 +13,7 @@
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,
+    "lib": ["ES2015", "DOM"],
     "declarationDir": "types",
     "sourceMap": true,
     "outDir": "dist",
@@ -21,6 +22,6 @@
     "emitDeclarationOnly": true,
     "types": ["jest"]
   },
-  "include": ["src", "src/setupTests.ts"],
-  "exclude": ["**/*.spec.ts", "**/*.spec.tsx"]
+  "include": ["src"],
+  "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "src/setupTests.ts"]
 }
